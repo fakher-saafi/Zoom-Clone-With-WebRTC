@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 3000;
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 const { v4: uuidV4 } = require('uuid')
@@ -25,5 +28,4 @@ io.on('connection', socket => {
     })
   })
 })
-
-server.listen(3000)
+server.listen(port)
