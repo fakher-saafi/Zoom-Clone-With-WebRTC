@@ -1,4 +1,5 @@
 const express = require('express')
+const { PeerServer } = require('peer');
 const app = express()
 // set the port of our application
 // process.env.PORT lets the port be set by Heroku
@@ -28,4 +29,5 @@ io.on('connection', socket => {
     })
   })
 })
+const peerServer = PeerServer({ port: 9000 });
 server.listen(port)
