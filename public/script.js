@@ -12,8 +12,8 @@ navigator.mediaDevices.getUserMedia({
   video: true,
   audio: true
 }).then(stream => {
-  if (device=="desktop")
-  addVideoStream(myVideo, stream)
+  //if (device=="desktop")
+ // addVideoStream(myVideo, stream)
 
   myPeer.on('call', call => {
     call.answer(stream)
