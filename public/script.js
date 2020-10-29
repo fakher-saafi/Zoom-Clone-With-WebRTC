@@ -20,7 +20,7 @@ navigator.mediaDevices.getUserMedia({
     call.answer(stream)
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
-      if (device=="desktop")
+      if (device!="desktop")
       addVideoStream(video, userVideoStream)
     })
   })
