@@ -41,7 +41,7 @@ function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   call.on('stream', userVideoStream => {
-    if (device=="desktop")
+    //if (device=="desktop")
     addVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
