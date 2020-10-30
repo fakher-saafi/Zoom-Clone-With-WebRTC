@@ -13,13 +13,13 @@ navigator.mediaDevices.getUserMedia({
   audio: true
 }).then(stream => {
   //if (device=="desktop")
-  addVideoStream(myVideo, stream)
+  //addVideoStream(myVideo, stream)
 
   myPeer.on('call', call => {
     call.answer(stream)
     const video = document.createElement('video')
     call.on('stream', userVideoStream => {
-      // if (device=="desktop")
+      if (device=="desktop")
       addVideoStream(video, userVideoStream)
     })
   })
@@ -41,7 +41,7 @@ function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   call.on('stream', userVideoStream => {
-    //if (device=="desktop")
+    if (device=="desktop")
     addVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
